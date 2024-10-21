@@ -1,26 +1,17 @@
-import {createRouter, createWebHistory} from 'vue-router'
-import BookListView from "../components/other/BookListView.vue";
+import {createMemoryHistory, createRouter} from 'vue-router'
 import AboutMeView from "../components/other/AboutMeView.vue";
 import BlogPostView from "../components/other/BlogPostView.vue";
+import BookListView from "../components/other/BookListView.vue";
+import AbView from "../components/other/AbView.vue";
 
-const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
-    routes: [
-        {
-            path: '/book',
-            name: 'book',
-            component: BookListView
-        },
-        {
-            path: '/me',
-            name: 'me',
-            component: AboutMeView
-        },
-        {
-            path: '/blog',
-            name: 'blog',
-            component: BlogPostView
-        },
-    ]
+const routes = [
+    {path: '/', component: AbView},
+    {path: '/me', component: AboutMeView},
+    {path: '/book', component: BlogPostView},
+    {path: '/blog', component: BookListView},
+]
+
+export const router = createRouter({
+    history: createMemoryHistory(),
+    routes,
 })
-export default router
