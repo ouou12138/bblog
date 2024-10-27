@@ -3,7 +3,7 @@
 </script>
 
 <template>
-<div>bowen</div>
+  <div>bowen</div>
 </template>
 
 <style scoped>
