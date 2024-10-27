@@ -1,15 +1,14 @@
 import {createMemoryHistory, createRouter} from 'vue-router'
-import AboutMeView from "../components/other/AboutMeView.vue";
-import BlogPostView from "../components/other/BlogPostView.vue";
-import BookListView from "../components/other/BookListView.vue";
-// import HomeView from "../components/HomeView.vue";
-import HomeView1 from "../components/HomeView1.vue";
+import AboutMeView from "../components/body/AboutMeView.vue";
+import BlogPostView from "../components/body/BlogPostView.vue";
+import BookListView from "../components/body/BookListView.vue";
+import MainView from "../components/body/MainView.vue";
 
 const routes = [
-    {path: '/', component: HomeView1},
+    {path: '/', component: MainView},
     {path: '/me', component: AboutMeView},
-    {path: '/book', component: BlogPostView},
-    {path: '/blog', component: BookListView},
+    {path: '/book', component: BookListView},
+    {path: '/blog', component: BlogPostView},
 ]
 
 export const router = createRouter({

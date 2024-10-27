@@ -14,5 +14,21 @@
 </template>
 
 <style scoped>
+/* 页面内容 */
+.intro p {
+  font-size: 24px;
+  color: #aaa;
+}
 
+.intro h1 {
+  font-size: 60px;
+  color: #999;
+  font-weight: lighter;
+}
+
+.intro h2 {
+  font-size: 48px;
+  color: black;
+  font-weight: bold;
+}
 </style>
