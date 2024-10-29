@@ -4,6 +4,8 @@ import {ref} from "vue";
 const showModal = ref(false)
 
 const leetcodeLink=ref('https://leetcode.cn/u/nullpointerexception-5/')
+const bilibiliLink=ref('https://space.bilibili.com/178661781?spm_id_from=333.1007.0.0')
+const githubLink=ref('https://github.com/bellingham07')
 
 const OpenExternalLink=(link)=>{
   showModal.value=false
@@ -27,6 +29,7 @@ const OpenExternalLink=(link)=>{
     <div class="modal-content" @click.stop>
       <div class="grid-menu">
         <!-- 九宫格内容，添加GitHub icon和文字 -->
+<!--        博文-->
         <router-link to="/blog" @click="showModal = false">
           <div class="menu-item">
             <svg t="1728913191295" class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -46,6 +49,7 @@ const OpenExternalLink=(link)=>{
           </div>
         </router-link>
 
+<!--        书籍-->
         <router-link to="/book" @click="showModal = false">
           <div class="menu-item">
             <svg t="1728913233354" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -58,6 +62,7 @@ const OpenExternalLink=(link)=>{
           </div>
         </router-link>
 
+<!--        关于-->
         <router-link to="/me" @click="showModal = false">
         <div class="menu-item">
           <svg t="1728913263229" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +75,7 @@ const OpenExternalLink=(link)=>{
         </div>
         </router-link>
 
-
+<!--        力扣-->
         <div class="menu-item" @click="OpenExternalLink(leetcodeLink)">
           <svg t="1728913450753" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                p-id="16832" width="200" height="200">
@@ -81,6 +86,7 @@ const OpenExternalLink=(link)=>{
           <span>力扣</span>
         </div>
 
+<!--        todo 订阅-->
         <div class="menu-item">
           <svg t="1728913475317" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                p-id="17890" width="200" height="200">
@@ -90,7 +96,9 @@ const OpenExternalLink=(link)=>{
           </svg>
           <span>订阅</span>
         </div>
-        <div class="menu-item">
+
+<!--        b站-->
+        <div class="menu-item" @click="OpenExternalLink(bilibiliLink)" >
           <svg t="1728913513985" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                p-id="18925" width="200" height="200">
             <path
@@ -99,7 +107,9 @@ const OpenExternalLink=(link)=>{
           </svg>
           <span>bilibili</span>
         </div>
-        <div class="menu-item">
+
+<!--        github-->
+        <div class="menu-item" @click="OpenExternalLink(githubLink)">
           <svg t="1728913568818" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                p-id="19932" width="200" height="200">
             <path
@@ -108,6 +118,8 @@ const OpenExternalLink=(link)=>{
           </svg>
           <span>Github</span>
         </div>
+
+<!--        思否-->
         <div class="menu-item">
           <svg t="1728913587630" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                p-id="21279" width="200" height="200">
@@ -117,6 +129,8 @@ const OpenExternalLink=(link)=>{
           </svg>
           <span>思否</span>
         </div>
+
+<!--        分享-->
         <div class="menu-item">
           <svg t="1728913609360" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                p-id="22343" width="200" height="200">
