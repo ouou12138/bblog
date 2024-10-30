@@ -1,9 +1,38 @@
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
+const targetDate = new Date('2024-10-30T22:03:45'); // 目标时间
+const elapsedTime = ref('');
 
+const updateTime = () => {
+  const now = new Date();
+  const difference = targetDate - now;
+
+  // 计算已经过去的时间
+  const elapsedDifference = Math.abs(difference);
+  const hoursElapsed = Math.floor((elapsedDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutesElapsed = Math.floor((elapsedDifference % (1000 * 60 * 60)) / (1000 * 60));
+  const secondsElapsed = Math.floor((elapsedDifference % (1000 * 60)) / 1000);
+  elapsedTime.value = `${hoursElapsed}h${minutesElapsed}m${secondsElapsed}s`;
+};
+
+let intervalId;
+
+onMounted(() => {
+  updateTime(); // 初始更新
+  intervalId = setInterval(updateTime, 1000); // 每秒更新
+});
+
+onUnmounted(() => {
+  clearInterval(intervalId); // 清理定时器
+});
 </script>
 
 <template>
   <div class="right">
+    <div>
+      <h1>倒计时</h1>
+      <p>剩余时间2: {{ elapsedTime }}</p>
+    </div>
     <!-- .blog就对应表示一个博客 -->
     <div class="blog">
       <!-- 博客标题 -->
@@ -20,7 +49,10 @@
         红尘路远，岁月无声，我们不过是行路之人，以过客身份，找寻归依。远方，应该是有诗的。——题记<br>
         从山脚到山顶需要走多久？从望岳到登高，便是杜甫的一生。李白天赋难学，<br>
       </div>
-      <a href="#">查看全文 &gt;&gt;</a>
+      <div>
+        距离我写下这篇文章已经过去了:{{elapsedTime}}
+      </div>
+<!--      <a href="#">查看全文 &gt;&gt;</a>-->
     </div>
     <div class="blog">
       <!-- 博客标题 -->
@@ -45,7 +77,7 @@
 <style scoped>
 /* 这个文件中专门写和博客列表页相关的样式 */
 .blog{
-  width: 100%;
+  width: 98%;
   /* 高度如果不设置, 就取决于里面的内容高度的综合 */
   padding: 20px;
 }
