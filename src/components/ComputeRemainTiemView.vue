@@ -1,5 +1,5 @@
 <template>
-  <span class="date">距离我写下这篇文章已经过去了:{{ formattedTimeDifference }}</span>
+  <span class="date">距离我写下这篇文章已经过去了: {{ formattedTimeDifference }}</span>
 </template>
 
 <script setup>
@@ -34,7 +34,7 @@ const updateTimeDifference = () => {
   const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-  formattedTimeDifference.value = `${hours}h${minutes}m${seconds}s`
+  formattedTimeDifference.value = `${hours}h ${minutes}m ${seconds}s`
 };
 
 // 设置定时器
@@ -54,9 +54,9 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.date{
-  text-align: center;
+.date {
   color: rgb(231, 24, 186);
+  letter-spacing: 0.5px;
   padding: 10px 0;
 }
 </style>

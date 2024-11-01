@@ -1,17 +1,13 @@
-import {createMemoryHistory, createRouter} from 'vue-router'
-import AboutMeView from "../components/body/AboutMeView.vue";
-import BlogPostView from "../components/body/BlogPostView.vue";
-import BookListView from "../components/body/BookListView.vue";
-import MainView from "../components/body/MainView.vue";
+import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
-    {path: '/', component: MainView},
-    {path: '/me', component: AboutMeView},
-    {path: '/book', component: BookListView},
-    {path: '/blog', component: BlogPostView},
-]
+  { path: "/", component: () => import("@/pages/MainView.vue") },
+  { path: "/me", component: () => import("@/pages/AboutMeView.vue") },
+  { path: "/book", component: () => import("@/pages/BookListView.vue") },
+  { path: "/blog", component: () => import("@/pages/BlogPostView.vue") },
+];
 
 export const router = createRouter({
-    history: createMemoryHistory(),
-    routes,
-})
+  history: createWebHistory(),
+  routes,
+});
